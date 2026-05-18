@@ -1,56 +1,87 @@
-# Welcome to your Expo app 👋
+#### Cross-Plataform Application Development - Sprint 01 | Definição da Solução
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+# Comunica Verde Motiva
 
-## Get started
+Aplicativo mobile desenvolvido para registrar e monitorar ocorrências relacionadas à vegetação e riscos naturais em rodovias.
 
-1. Install dependencies
+---
 
-   ```bash
-   npm install
-   ```
+## Problema Escolhido
 
-2. Start the app
+Vegetações podem invadir áreas das rodovias devido a fatores climáticos e falta de manutenção, comprometendo a segurança, a visibilidade e o fluxo das vias.
 
-   ```bash
-   npx expo start
-   ```
+Além disso, árvores com risco de queda, galhos próximos à pista, vegetação alta em canteiros e placas encobertas podem dificultar a identificação rápida dos problemas pelas equipes responsáveis.
 
-In the output, you'll find options to open the app in a
+Atualmente, muitas dessas ocorrências dependem de comunicação manual, tornando o processo lento e descentralizado.
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+---
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## Solução Proposta
 
-## Get a fresh project
+O Comunica Verde Motiva permite que operadores e equipes responsáveis registrem ocorrências diretamente pelo celular utilizando fotos, localização e classificação de risco.
 
-When you're ready, run:
+O aplicativo centraliza as informações em uma única plataforma, auxiliando no monitoramento dos trechos e na priorização de ações de manutenção.
 
-```bash
-npm run reset-project
+Exemplos de ocorrências:
+- Vegetação alta;
+- Galhos na pista;
+- Árvores com risco de queda;
+- Placas encobertas;
+- Baixa visibilidade.
+
+---
+
+## Usuários do Aplicativo
+
+- Operadores de campo;
+- Supervisores;
+- Equipes de manutenção.
+
+---
+
+## Funcionalidades do MVP
+
+- Cadastro de ocorrência;
+- Registro de foto;
+- Classificação de risco;
+- Listagem de ocorrências;
+- Visualização de detalhes.
+
+---
+
+## Fluxo do Aplicativo
+
+1. O operador identifica uma ocorrência;
+2. Realiza o registro pelo aplicativo;
+3. O sistema salva foto, localização e risco;
+4. A ocorrência fica disponível para acompanhamento.
+
+---
+
+## Protótipo de Telas
+
+### Tela 1 — Lista de Ocorrências
+Visualização das ocorrências cadastradas em uma lista com rolagem contínua.
+
+### Tela 2 — Nova Ocorrência
+Cadastro de novas ocorrências com foto e descrição.
+
+### Tela 3 — Detalhes da Ocorrência
+Visualização completa das informações registradas ao selecionar uma ocorrência da lista.
+
+---
+
+## Estrutura Técnica
+
+```txt
+src/
+ ├── screens/
+ ├── components/
+ └── types/
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-### Other setup steps
-
-- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
-- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
-- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+## Tecnologias Utilizadas
+- React Native
+- Expo
+- TypeScript
+- Figma
