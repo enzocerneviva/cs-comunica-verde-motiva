@@ -1,0 +1,1 @@
+export type Status = "pendente" | "em andamento" | "resolvido"

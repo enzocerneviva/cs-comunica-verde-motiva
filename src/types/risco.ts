@@ -1,0 +1,1 @@
+export type Risco = "baixo" | "medio" | "alto"
