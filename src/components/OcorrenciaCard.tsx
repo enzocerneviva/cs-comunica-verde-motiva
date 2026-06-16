@@ -13,14 +13,23 @@ const RISCO_COLORS: Record<string, string> = {
     alto: '#F44336',
 };
 
+const STATUS_COLORS = {
+    pendente: '#EF6C00',
+    'em andamento': '#1976D2',
+    resolvido: '#2E7D32'
+};
+
 const styles = StyleSheet.create({
     container: {
-        marginBottom: 12,
-        borderRadius: 8,
-        overflow: 'hidden',
-        borderLeftWidth: 4,
+        marginBottom: 16,
         backgroundColor: '#fff',
-        padding: 12,
+        borderRadius: 16,
+        padding: 16,
+
+        shadowColor: '#000',
+        shadowOpacity: 0.08,
+        shadowRadius: 10,
+        elevation: 4,
     },
     riscoBorder: {
         borderLeftColor: '#4CAF50',
@@ -32,10 +41,9 @@ const styles = StyleSheet.create({
         marginBottom: 8,
     },
     local: {
-        fontSize: 14,
-        fontWeight: '600',
-        color: '#333',
-        flex: 1,
+        fontSize: 16,
+        fontWeight: '700',
+        color: '#1F2937',
     },
     riscoBadge: {
         paddingHorizontal: 8,
@@ -49,9 +57,9 @@ const styles = StyleSheet.create({
         fontWeight: '600',
     },
     descricao: {
-        fontSize: 12,
-        color: '#666',
-        marginBottom: 8,
+        fontSize: 14,
+        lineHeight: 20,
+        color: '#4B5563',
     },
     footer: {
         flexDirection: 'row',

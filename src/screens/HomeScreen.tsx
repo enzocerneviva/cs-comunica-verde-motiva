@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import type { NativeStackScreenProps } from '@react-navigation/native-stack';
+import React from 'react';
 import {
     FlatList,
     Pressable,
@@ -7,13 +8,11 @@ import {
     View,
 } from 'react-native';
 import { OcorrenciaCard } from '../components/OcorrenciaCard';
-import MOCK_OCORRENCIAS from '../data/mock';
+import { useOcorrencias } from '../context/OcorrenciasContext';
+import { RootStackParamList } from '../navigation/AppNavigator';
 import type { Ocorrencia } from '../types/ocorrencia';
 
-type HomeScreenProps = {
-    onNavigateNew?: () => void;
-    onNavigateDetails?: (id: string) => void;
-};
+type Props = NativeStackScreenProps<RootStackParamList, 'Home'>;
 
 const styles = StyleSheet.create({
     container: {
@@ -21,22 +20,21 @@ const styles = StyleSheet.create({
         backgroundColor: '#f5f5f5',
     },
     header: {
-        paddingHorizontal: 16,
-        paddingTop: 16,
-        paddingBottom: 12,
-        backgroundColor: '#fff',
-        borderBottomWidth: 1,
-        borderBottomColor: '#eee',
+        backgroundColor: '#2E7D32',
+        paddingHorizontal: 20,
+        paddingTop: 24,
+        paddingBottom: 24,
+        borderBottomLeftRadius: 24,
+        borderBottomRightRadius: 24,
     },
     title: {
-        fontSize: 24,
-        fontWeight: 'bold',
-        color: '#333',
-        marginBottom: 8,
+        fontSize: 28,
+        fontWeight: '700',
+        color: '#fff',
     },
     subtitle: {
-        fontSize: 14,
-        color: '#666',
+        fontSize: 15,
+        color: '#E8F5E9',
     },
     listContainer: {
         paddingHorizontal: 16,
@@ -69,24 +67,45 @@ const styles = StyleSheet.create({
         fontSize: 16,
         fontWeight: '600',
     },
+    statsContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        paddingHorizontal: 16,
+        marginTop: -20,
+        marginBottom: 12,
+    },
+
+    statCard: {
+        backgroundColor: '#fff',
+        flex: 1,
+        marginHorizontal: 4,
+        padding: 14,
+        borderRadius: 12,
+        alignItems: 'center',
+
+        shadowColor: '#000',
+        shadowOpacity: 0.08,
+        shadowRadius: 8,
+        elevation: 3,
+    },
+
+    statNumber: {
+        fontSize: 22,
+        fontWeight: '700',
+    },
+
+    statLabel: {
+        color: '#666',
+    }
 });
 
-export function HomeScreen({
-    onNavigateNew,
-    onNavigateDetails,
-}: HomeScreenProps) {
-    const [ocorrencias, setOcorrencias] = useState<Ocorrencia[]>(
-        MOCK_OCORRENCIAS
-    );
-
-    const adicionarOcorrencia = (novaOcorrencia: Ocorrencia) => {
-        setOcorrencias([novaOcorrencia, ...ocorrencias]);
-    };
+export default function HomeScreen({ navigation }: Props) {
+    const { ocorrencias } = useOcorrencias();
 
     const renderItem = ({ item }: { item: Ocorrencia }) => (
         <OcorrenciaCard
             item={item}
-            onPress={() => onNavigateDetails?.(item.id)}
+            onPress={() => navigation.navigate('Details', { id: item.id })}
         />
     );
 
@@ -110,6 +129,29 @@ export function HomeScreen({
                 </Text>
             </View>
 
+            <View style={styles.statsContainer}>
+                <View style={styles.statCard}>
+                    <Text style={styles.statNumber}>
+                        {ocorrencias.filter(o => o.risco === 'alto').length}
+                    </Text>
+                    <Text style={styles.statLabel}>Alto</Text>
+                </View>
+
+                <View style={styles.statCard}>
+                    <Text style={styles.statNumber}>
+                        {ocorrencias.filter(o => o.risco === 'medio').length}
+                    </Text>
+                    <Text style={styles.statLabel}>Médio</Text>
+                </View>
+
+                <View style={styles.statCard}>
+                    <Text style={styles.statNumber}>
+                        {ocorrencias.filter(o => o.risco === 'baixo').length}
+                    </Text>
+                    <Text style={styles.statLabel}>Baixo</Text>
+                </View>
+            </View>
+
             <FlatList
                 data={ocorrencias}
                 renderItem={renderItem}
@@ -121,7 +163,7 @@ export function HomeScreen({
             <View style={styles.buttonContainer}>
                 <Pressable
                     style={styles.button}
-                    onPress={() => onNavigateNew?.()}
+                    onPress={() => navigation.navigate('New')}
                 >
                     <Text style={styles.buttonText}>+ Nova Ocorrência</Text>
                 </Pressable>

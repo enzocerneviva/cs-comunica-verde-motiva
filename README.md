@@ -85,3 +85,35 @@ src/
 - Expo
 - TypeScript
 - Figma
+
+---
+
+## Como rodar o projeto (desenvolvimento)
+
+Pré-requisitos: Node.js, npm e Expo CLI. Execute no terminal na raiz do projeto:
+
+```bash
+npm install
+npx expo install react-native-screens react-native-safe-area-context
+npx expo start
+```
+
+Abra no Expo Go (QR) ou emulador. Para abrir no navegador, pressione `w` no DevTools.
+
+## Onde estão os arquivos importantes
+- Tipos: `src/types/` (`ocorrencia.ts`, `risco.ts`, `status.ts`)
+- Mocks: `src/data/mock.ts` (array `MOCK_OCORRENCIAS` usado para inicializar o estado)
+- Contexto/estado: `src/context/OcorrenciasContext.tsx` (provider com `addOcorrencia` / `updateOcorrencia`)
+- Navegação: `src/navigation/AppNavigator.tsx` (Stack: Home, New, Details)
+- Telas: `src/screens/` (`HomeScreen.tsx`, `NewOccurrenceScreen.tsx`, `OccurrenceDetailsScreen.tsx`)
+- Componentes: `src/components/OcorrenciaCard.tsx`
+
+## Notas de desenvolvimento
+- O app usa `React Navigation` para rotas e um `Context` simples para compartilhar o estado de ocorrências.
+- Os dados ainda são mockados (arquivo `src/data/mock.ts`). Para persistência local futura, use `AsyncStorage`.
+
+## Próximos passos sugeridos
+- Adicionar upload de foto e permissões de câmera (Expo ImagePicker)
+- Persistir dados com `AsyncStorage` ou backend
+- Melhorar validações e feedback do formulário
+- Adicionar testes e ajustes de acessibilidade
