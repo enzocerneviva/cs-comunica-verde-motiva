@@ -1,119 +1,243 @@
-#### Cross-Plataform Application Development - Sprint 01 | Definição da Solução
+#### Cross-Platform Application Development - Sprint 01 | Definição da Solução
 
 # Comunica Verde Motiva
 
-Aplicativo mobile desenvolvido para registrar e monitorar ocorrências relacionadas à vegetação e riscos naturais em rodovias.
+Aplicativo mobile desenvolvido para registrar e acompanhar ocorrências relacionadas à vegetação e riscos naturais em rodovias, auxiliando equipes de monitoramento e manutenção na identificação rápida de problemas em campo.
 
 ---
 
 ## Problema Escolhido
 
-Vegetações podem invadir áreas das rodovias devido a fatores climáticos e falta de manutenção, comprometendo a segurança, a visibilidade e o fluxo das vias.
+O crescimento descontrolado da vegetação em áreas próximas às rodovias pode comprometer a segurança dos motoristas, reduzir a visibilidade da sinalização e aumentar o risco de acidentes.
 
-Além disso, árvores com risco de queda, galhos próximos à pista, vegetação alta em canteiros e placas encobertas podem dificultar a identificação rápida dos problemas pelas equipes responsáveis.
+Além disso, árvores com risco de queda, galhos próximos à pista, vegetação alta em canteiros centrais e placas encobertas exigem acompanhamento constante para garantir a segurança e a eficiência operacional das vias.
 
-Atualmente, muitas dessas ocorrências dependem de comunicação manual, tornando o processo lento e descentralizado.
+Atualmente, muitas dessas ocorrências são registradas de forma manual ou descentralizada, dificultando o acompanhamento e a priorização das ações corretivas.
 
 ---
 
 ## Solução Proposta
 
-O Comunica Verde Motiva permite que operadores e equipes responsáveis registrem ocorrências diretamente pelo celular utilizando fotos, localização e classificação de risco.
+O Comunica Verde Motiva centraliza o registro e a consulta de ocorrências em um único aplicativo mobile.
 
-O aplicativo centraliza as informações em uma única plataforma, auxiliando no monitoramento dos trechos e na priorização de ações de manutenção.
+Através da aplicação, operadores podem cadastrar problemas encontrados na rodovia, classificando o nível de risco e descrevendo a situação observada. As informações ficam disponíveis para consulta e acompanhamento pelas equipes responsáveis.
 
 Exemplos de ocorrências:
-- Vegetação alta;
-- Galhos na pista;
-- Árvores com risco de queda;
-- Placas encobertas;
-- Baixa visibilidade.
+
+* Vegetação alta;
+* Galhos na pista;
+* Árvores com risco de queda;
+* Placas encobertas;
+* Problemas de visibilidade.
 
 ---
 
 ## Usuários do Aplicativo
 
-- Operadores de campo;
-- Supervisores;
-- Equipes de manutenção.
+* Operadores de campo;
+* Supervisores;
+* Equipes de manutenção;
+* Equipes de monitoramento rodoviário.
 
 ---
 
-## Funcionalidades do MVP
+## Funcionalidades Implementadas
 
-- Cadastro de ocorrência;
-- Registro de foto;
-- Classificação de risco;
-- Listagem de ocorrências;
-- Visualização de detalhes.
+### Cadastro de Ocorrências
+
+Permite registrar uma nova ocorrência informando:
+
+* Local;
+* Descrição;
+* Nível de risco.
+
+### Listagem de Ocorrências
+
+Exibe todas as ocorrências cadastradas em uma interface organizada e intuitiva.
+
+### Visualização de Detalhes
+
+Permite consultar todas as informações de uma ocorrência específica, incluindo:
+
+* Local;
+* Descrição;
+* Data de registro;
+* Nível de risco;
+* Status;
+* Comentários.
+
+### Classificação de Risco
+
+Cada ocorrência pode ser classificada como:
+
+* Baixo;
+* Médio;
+* Alto.
 
 ---
 
 ## Fluxo do Aplicativo
 
-1. O operador identifica uma ocorrência;
-2. Realiza o registro pelo aplicativo;
-3. O sistema salva foto, localização e risco;
-4. A ocorrência fica disponível para acompanhamento.
+1. O operador identifica uma ocorrência na rodovia;
+2. Realiza o cadastro pelo aplicativo;
+3. Informa local, descrição e nível de risco;
+4. A ocorrência é registrada no sistema;
+5. As informações ficam disponíveis para consulta na listagem e na tela de detalhes.
 
 ---
 
-## Protótipo de Telas
+## Protótipo Implementado
 
-### Tela 1 — Lista de Ocorrências
-Visualização das ocorrências cadastradas em uma lista com rolagem contínua.
+### Tela Inicial
 
-### Tela 2 — Nova Ocorrência
-Cadastro de novas ocorrências com foto e descrição.
+* Listagem das ocorrências cadastradas;
+* Exibição de quantidade total de registros;
+* Navegação para criação de novas ocorrências.
 
-### Tela 3 — Detalhes da Ocorrência
-Visualização completa das informações registradas ao selecionar uma ocorrência da lista.
+### Tela de Cadastro
+
+* Formulário para criação de novas ocorrências;
+* Seleção do nível de risco;
+* Validação dos campos obrigatórios.
+
+### Tela de Detalhes
+
+* Exibição completa das informações registradas;
+* Interface organizada em cartões de informação;
+* Consulta de comentários e status.
 
 ---
 
-## Estrutura Técnica
+## Estrutura do Projeto
 
 ```txt
 src/
- ├── screens/
- ├── components/
- └── types/
+├── components/
+├── context/
+├── navigation/
+├── screens/
+├── types/
+└── data/
 ```
-
-## Tecnologias Utilizadas
-- React Native
-- Expo
-- TypeScript
-- Figma
 
 ---
 
-## Como rodar o projeto (desenvolvimento)
+## Tecnologias Utilizadas
 
-Pré-requisitos: Node.js, npm e Expo CLI. Execute no terminal na raiz do projeto:
+* React Native
+* Expo
+* TypeScript
+* React Navigation
+* Context API
+* Figma
+
+---
+
+## Como Executar o Projeto
+
+### Pré-requisitos
+
+* Node.js
+* npm
+* Expo Go
+
+### Instalação
 
 ```bash
 npm install
-npx expo install react-native-screens react-native-safe-area-context
+```
+
+### Execução
+
+```bash
 npx expo start
 ```
 
-Abra no Expo Go (QR) ou emulador. Para abrir no navegador, pressione `w` no DevTools.
+Após iniciar o projeto:
 
-## Onde estão os arquivos importantes
-- Tipos: `src/types/` (`ocorrencia.ts`, `risco.ts`, `status.ts`)
-- Mocks: `src/data/mock.ts` (array `MOCK_OCORRENCIAS` usado para inicializar o estado)
-- Contexto/estado: `src/context/OcorrenciasContext.tsx` (provider com `addOcorrencia` / `updateOcorrencia`)
-- Navegação: `src/navigation/AppNavigator.tsx` (Stack: Home, New, Details)
-- Telas: `src/screens/` (`HomeScreen.tsx`, `NewOccurrenceScreen.tsx`, `OccurrenceDetailsScreen.tsx`)
-- Componentes: `src/components/OcorrenciaCard.tsx`
+* Pressione `w` para abrir no navegador;
+* Escaneie o QR Code com o Expo Go para executar no celular.
 
-## Notas de desenvolvimento
-- O app usa `React Navigation` para rotas e um `Context` simples para compartilhar o estado de ocorrências.
-- Os dados ainda são mockados (arquivo `src/data/mock.ts`). Para persistência local futura, use `AsyncStorage`.
+---
 
-## Próximos passos sugeridos
-- Adicionar upload de foto e permissões de câmera (Expo ImagePicker)
-- Persistir dados com `AsyncStorage` ou backend
-- Melhorar validações e feedback do formulário
-- Adicionar testes e ajustes de acessibilidade
+## Arquivos Principais
+
+### Navegação
+
+```txt
+src/navigation/AppNavigator.tsx
+```
+
+Responsável pela navegação entre as telas:
+
+* Home
+* New
+* Details
+
+### Contexto Global
+
+```txt
+src/context/OcorrenciasContext.tsx
+```
+
+Gerencia o estado compartilhado das ocorrências.
+
+### Componentes
+
+```txt
+src/components/OcorrenciaCard.tsx
+```
+
+Componente responsável pela exibição das ocorrências na listagem.
+
+### Telas
+
+```txt
+src/screens/
+├── HomeScreen.tsx
+├── NewOccurrenceScreen.tsx
+└── OccurrenceDetailsScreen.tsx
+```
+
+---
+
+## Dados Mockados
+
+Atualmente o aplicativo não possui integração com banco de dados ou API externa.
+
+As ocorrências são armazenadas em memória através da Context API durante a execução da aplicação.
+
+Estrutura utilizada:
+
+```txt
+src/context/OcorrenciasContext.tsx
+```
+
+Ao cadastrar uma nova ocorrência, ela é adicionada ao estado global da aplicação e permanece disponível enquanto o aplicativo estiver em execução.
+
+Exemplo de dados armazenados:
+
+```json
+{
+  "id": "123",
+  "local": "BR-101 Km 120",
+  "risco": "alto",
+  "descricao": "Árvore com risco de queda",
+  "status": "pendente",
+  "comentarios": []
+}
+```
+
+Em futuras versões, os dados poderão ser persistidos utilizando AsyncStorage ou integração com backend.
+
+## Próximas Evoluções
+
+* Persistência local com AsyncStorage;
+* Captura de fotos da ocorrência;
+* Geolocalização do ponto registrado;
+* Integração com backend;
+* Filtros por risco e status;
+* Dashboard de acompanhamento;
+* Notificações para equipes responsáveis.
+
+---
